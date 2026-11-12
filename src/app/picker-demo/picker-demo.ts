@@ -6,8 +6,8 @@ import { Component, input, model } from '@angular/core';
   styleUrl: './picker-demo.css',
 })
 export class PickerDemo {
-  readonly title = input.required<string>();
-  readonly packageName = input.required<string>();
-  readonly description = input.required<string>();
+  readonly title = input<string>('');
+  readonly packageName = input<string>('');
+  readonly description = input<string>('');
   readonly text = model('');
 }
