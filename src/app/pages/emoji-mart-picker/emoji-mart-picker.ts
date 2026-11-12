@@ -12,6 +12,7 @@ import { PickerDemo } from '../../picker-demo/picker-demo';
 import {
   defaultMartOptions,
   loadMartData,
+  loadMartI18n,
   MartOptions,
   optionFields,
   parseOptionValue,
@@ -62,7 +63,10 @@ export class EmojiMartPage {
   private async mountPicker() {
     const seq = ++this.mountSeq;
     const opts = this.options();
-    const json = await loadMartData(opts.set, opts.emojiVersion);
+    const [json, i18n] = await Promise.all([
+      loadMartData(opts.set, opts.emojiVersion),
+      loadMartI18n(opts.locale),
+    ]);
     if (seq !== this.mountSeq) {
       return;
     }
@@ -72,6 +76,7 @@ export class EmojiMartPage {
 
     const picker = new Picker({
       ...(data ? { data } : {}),
+      i18n,
       ...opts,
       getSpritesheetURL: spritesheetUrl,
       onEmojiSelect: (emoji: { native?: string }) => {

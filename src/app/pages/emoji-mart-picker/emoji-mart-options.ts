@@ -174,12 +174,42 @@ export function spritesheetUrl(set: string): string {
   return `https://cdn.jsdelivr.net/npm/emoji-datasource-${set}@15.0.1/img/${set}/sheets-256/64.png`;
 }
 
+const i18nLoaders: Record<string, () => Promise<unknown>> = {
+  ar: () => import('@emoji-mart/data/i18n/ar.json'),
+  be: () => import('@emoji-mart/data/i18n/be.json'),
+  cs: () => import('@emoji-mart/data/i18n/cs.json'),
+  de: () => import('@emoji-mart/data/i18n/de.json'),
+  en: () => import('@emoji-mart/data/i18n/en.json'),
+  es: () => import('@emoji-mart/data/i18n/es.json'),
+  fa: () => import('@emoji-mart/data/i18n/fa.json'),
+  fi: () => import('@emoji-mart/data/i18n/fi.json'),
+  fr: () => import('@emoji-mart/data/i18n/fr.json'),
+  hi: () => import('@emoji-mart/data/i18n/hi.json'),
+  it: () => import('@emoji-mart/data/i18n/it.json'),
+  ja: () => import('@emoji-mart/data/i18n/ja.json'),
+  ko: () => import('@emoji-mart/data/i18n/ko.json'),
+  nl: () => import('@emoji-mart/data/i18n/nl.json'),
+  pl: () => import('@emoji-mart/data/i18n/pl.json'),
+  pt: () => import('@emoji-mart/data/i18n/pt.json'),
+  ru: () => import('@emoji-mart/data/i18n/ru.json'),
+  sa: () => import('@emoji-mart/data/i18n/sa.json'),
+  tr: () => import('@emoji-mart/data/i18n/tr.json'),
+  uk: () => import('@emoji-mart/data/i18n/uk.json'),
+  vi: () => import('@emoji-mart/data/i18n/vi.json'),
+  zh: () => import('@emoji-mart/data/i18n/zh.json'),
+};
+
 export async function loadMartData(
   set: EmojiSet,
   version: number,
 ): Promise<Record<string, unknown>> {
   const json = version === 15 ? await loadLocalSet(set) : await fetchSet(set, version);
   return structuredClone(json);
+}
+
+export async function loadMartI18n(locale: string): Promise<Record<string, unknown>> {
+  const load = i18nLoaders[locale] ?? i18nLoaders['en'];
+  return structuredClone(unwrapJson(await load()));
 }
 
 async function loadLocalSet(set: EmojiSet): Promise<Record<string, unknown>> {
