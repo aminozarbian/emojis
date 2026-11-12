@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+@import "ngx-emoji-mart-next/picker";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  background: #f4f5fb;
+  color: #1c1c28;
+}
+
+textarea,
+button {
+  font: inherit;
+}

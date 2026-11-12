@@ -1,0 +1,28 @@
+<app-picker-demo
+  packageName="emoji-mart"
+  title="Vanilla emoji mart"
+  description="Same options as the official Emoji Mart demo. Change a control to rebuild the picker."
+  [(text)]="text"
+>
+  <div class="mart">
+    <div class="options" role="group" aria-label="Picker options">
+      @for (field of fields; track field.key) {
+        <label class="option">
+          <span>{{ field.label }}</span>
+          <select (change)="onFieldChange(field.key, $any($event.target).value)">
+            @for (choice of field.choices; track choice.value) {
+              <option
+                [value]="choice.value"
+                [selected]="stringValue(field.key) === choice.value"
+              >
+                {{ choice.label }}
+              </option>
+            }
+          </select>
+        </label>
+      }
+      <button type="button" class="reset" (click)="reset()">Reset</button>
+    </div>
+    <div #host></div>
+  </div>
+</app-picker-demo>

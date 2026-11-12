@@ -1,0 +1,14 @@
+<app-picker-demo
+  packageName="ngx-emoji-mart-next"
+  title="Angular emoji mart"
+  description="Native Angular port of Emoji Mart. Search, categories, recents, and i18n."
+  [(text)]="text"
+>
+  <emoji-mart
+    title="Pick your emoji…"
+    emoji="point_up"
+    [isNative]="true"
+    [darkMode]="false"
+    (emojiSelect)="addEmoji($event)"
+  ></emoji-mart>
+</app-picker-demo>

@@ -1,0 +1,56 @@
+.demo {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.demo__pkg {
+  margin: 0;
+  color: #4f46e5;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.demo__header h2 {
+  margin: 0.2rem 0 0;
+  font-size: 1.45rem;
+  letter-spacing: -0.03em;
+}
+
+.demo__desc {
+  margin: 0.4rem 0 0;
+  color: #5c5c70;
+}
+
+.demo__output {
+  display: grid;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #3f3f50;
+}
+
+.demo__output textarea {
+  width: 100%;
+  resize: vertical;
+  border: 1px solid #d9dbe7;
+  border-radius: 12px;
+  padding: 0.75rem 0.85rem;
+  background: #fff;
+  color: inherit;
+  font-size: 1.35rem;
+  line-height: 1.45;
+}
+
+.demo__output textarea:focus {
+  outline: 2px solid #c7c4ff;
+  border-color: #4f46e5;
+}
+
+.demo__picker {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 0.25rem 0 1rem;
+}

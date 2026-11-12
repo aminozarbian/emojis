@@ -1,0 +1,55 @@
+.mart {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+}
+
+.options {
+  display: grid;
+  gap: 0.55rem;
+  min-width: 16.5rem;
+  padding: 0.85rem 1rem;
+  background: #fff;
+  border: 1px solid #e6e7ef;
+  border-radius: 12px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #3f3f50;
+}
+
+.option select {
+  min-width: 8.5rem;
+  border: 1px solid #d9dbe7;
+  border-radius: 8px;
+  padding: 0.28rem 0.45rem;
+  background: #fff;
+  color: inherit;
+}
+
+.reset {
+  margin-top: 0.25rem;
+  justify-self: end;
+  border: 0;
+  border-radius: 8px;
+  padding: 0.4rem 0.75rem;
+  background: #eef0f8;
+  color: #3f3f50;
+  font-size: 0.85rem;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.reset:hover {
+  background: #e4e6f3;
+}
+
